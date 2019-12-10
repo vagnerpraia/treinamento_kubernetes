@@ -2,7 +2,11 @@
     "apiVersion": "v1",
     "kind": "Pod",
     "metadata": {
-        "name": "nats-pod"
+        "name": "nats-pod",
+        "namespace": "nats",
+        "labels": {
+            "app": "nats"
+        }
     },
     "spec": {
         "containers": [
@@ -11,7 +15,13 @@
                 "image": "nats:alpine3.10",
                 "ports": [
                     {
-                        "containerPort": 8080
+                        "containerPort": 4222
+                    },
+                    {
+                        "containerPort": 6222
+                    },
+                    {
+                        "containerPort": 8222
                     }
                 ]
             }
